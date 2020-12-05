@@ -1,0 +1,23 @@
+FROM debian:buster-slim
+
+RUN apt-get update
+RUN apt-get install -y git
+RUN apt-get install -y cmake
+RUN apt-get install -y autoconf
+RUN apt-get install -y libtool
+RUN apt-get install -y uuid-dev
+RUN apt-get install -y libcurl4-openssl-dev
+RUN apt-get install -y libssl-dev
+RUN apt-get install -y libgnutls28-dev
+RUN apt-get install -y libgcrypt20-dev
+RUN apt-get install -y libmicrohttpd-dev
+RUN apt-get install -y libsasl2-dev
+RUN apt-get install -y libunistring-dev
+RUN apt-get install -y wget
+RUN apt-get install -y sudo
+RUN apt-get install -y pkg-config
+RUN apt-get install -y build-essential
+
+WORKDIR /app
+COPY install.sh .
+RUN bash install.sh

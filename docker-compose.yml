@@ -6,3 +6,6 @@ services:
       context: ./component/fritzapi/
     volumes:
     - ".:/app"
+  vzlogger:
+    build:
+      context: ./component/vzlogger/
