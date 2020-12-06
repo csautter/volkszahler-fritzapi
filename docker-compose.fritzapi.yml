@@ -1,0 +1,7 @@
+version: "3.5"
+
+services:
+  fritzapi:
+    image: node:current-alpine
+    volumes:
+    - "./api:/app"

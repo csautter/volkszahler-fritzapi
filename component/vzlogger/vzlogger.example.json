@@ -1,7 +1,7 @@
 {
   "retry": 3,
   "daemon": false,
-  "verbosity": 15,
+  "verbosity": 0,
   "log": "/dev/stdout",
   "local": {
     "enabled": true,

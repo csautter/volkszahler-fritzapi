@@ -1,11 +1,6 @@
 version: "3.5"
 
 services:
-  fritzapi:
-    build:
-      context: ./component/fritzapi/
-    volumes:
-    - ".:/app"
   vzlogger:
     build:
       context: ./component/vzlogger/
@@ -14,3 +9,4 @@ services:
     volumes:
     - "./api:/app/api"
     - "./component/vzlogger/vzlogger.json:/etc/vzlogger.conf"
+    restart: always
