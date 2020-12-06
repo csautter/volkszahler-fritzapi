@@ -26,6 +26,4 @@ WORKDIR /app
 COPY install.sh .
 RUN bash install.sh
 
-COPY vzlogger.conf /etc/vzlogger.conf
-
 CMD ["/usr/local/bin/vzlogger","-c","/etc/vzlogger.conf"]
