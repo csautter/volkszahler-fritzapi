@@ -1,6 +1,8 @@
 FROM debian:buster-slim
 
-RUN apt-get update
+EXPOSE 80
+
+RUN apt-get -y update
 RUN apt-get install -y git
 RUN apt-get install -y cmake
 RUN apt-get install -y autoconf
@@ -17,7 +19,13 @@ RUN apt-get install -y wget
 RUN apt-get install -y sudo
 RUN apt-get install -y pkg-config
 RUN apt-get install -y build-essential
+RUN apt-get install -y vim
+RUN apt-get install -y nodejs
 
 WORKDIR /app
 COPY install.sh .
 RUN bash install.sh
+
+COPY vzlogger.conf /etc/vzlogger.conf
+
+CMD ["/usr/local/bin/vzlogger","-c","/etc/vzlogger.conf"]

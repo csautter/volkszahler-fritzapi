@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config();
 var Fritz = require('fritzapi').Fritz;
 
 const optionDefinitions = [
@@ -11,5 +11,5 @@ const options = commandLineArgs(optionDefinitions)
 var f = new Fritz(process.env.FB_USER, process.env.FB_PASS, process.env.FB_URL);
 
 f.getSwitchEnergy(options['ain']).then(function(energy_wh){
-    console.log(energy_wh);
+    console.log('energy ' + energy_wh);
 });

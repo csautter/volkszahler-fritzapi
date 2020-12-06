@@ -266,7 +266,7 @@ if [ -z "$1" ] || contains "$*" vzlogger; then
 
   echo
   echo "building vzlogger"
-  cmake -DBUILD_TEST=off ..
+  cmake -DBUILD_TEST=off -D METEREXEC_ROOTACCESS=true ..
   make
 
   echo
