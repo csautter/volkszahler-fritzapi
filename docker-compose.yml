@@ -13,4 +13,4 @@ services:
       - "8080:8080"
     volumes:
     - "./api:/app/api"
-    - "./component/vzlogger/vzlogger.conf:/etc/vzlogger.conf"
+    - "./component/vzlogger/vzlogger.json:/etc/vzlogger.conf"

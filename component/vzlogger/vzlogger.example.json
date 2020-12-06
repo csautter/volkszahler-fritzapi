@@ -1,0 +1,39 @@
+{
+  "retry": 3,
+  "daemon": false,
+  "verbosity": 15,
+  "log": "/dev/stdout",
+  "local": {
+    "enabled": true,
+    "port": 8080,
+    "index": true,
+    "timeout": 30,
+    "buffer": 600
+  },
+  "meters": [
+    {
+      "enabled": true,
+      "allowskip": true,
+      "use_local_time": true,
+      "aggtime": -1,
+      "aggfixedinterval": false,
+      "interval": 120,
+      "protocol": "exec",
+      "command": "cd /app/api && node get-switch-energy.js --ain 000012345678",
+      "format": "$i $v",
+      "channels": [
+        {
+          "uuid": "cd62e640-3732-11eb-9d49-09812203e6f7",
+          "middleware": "http://192.168.5.136:8080",
+          "identifier": "energy"
+        },
+        {
+          "uuid": "7d1eec50-37c6-11eb-985f-016d155eab7b",
+          "middleware": "http://192.168.5.136:8080",
+          "identifier": "power"
+        }
+      ]
+    }
+  ]
+}
+
