@@ -4,8 +4,6 @@ services:
   vzlogger:
     build:
       context: ./component/vzlogger/
-    ports:
-      - "8080:8080"
     volumes:
     - "./api:/app/api"
     - "./component/vzlogger/vzlogger.json:/etc/vzlogger.conf"
