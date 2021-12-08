@@ -2,7 +2,7 @@
   "name": "volkszaehler-fritzapi",
   "version": "0.0.1",
   "dependencies": {
-    "command-line-args": "^5.1.2",
+    "command-line-args": "^5.2.0",
     "dotenv": "^8.6.0",
     "fritzapi": "^0.12.0"
   }
