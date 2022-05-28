@@ -1,4 +1,4 @@
-FROM debian:10.10-slim
+FROM debian:10.12-slim
 
 EXPOSE 80
 
