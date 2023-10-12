@@ -1,4 +1,4 @@
-FROM debian:10.10-slim
+FROM debian:buster-20231009-slim
 
 EXPOSE 80
 
