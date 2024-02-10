@@ -10,7 +10,7 @@ updates:
     commit-message:
       prefix: "[npm] "
   - package-ecosystem: "docker"
-    directory: "/"
+    directory: "/component/vzlogger/"
     schedule:
       interval: "weekly"
     commit-message:
