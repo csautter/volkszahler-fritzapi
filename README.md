@@ -23,6 +23,14 @@ FB_USER=user
 # Fritz Box Passwort
 FB_PASS=<YOUR_PASSWORD>
 ````
+````dockerfile
+services:
+  vzlogger:
+    environment:
+        - FB_URL=http://192.168.178.1/
+        - FB_USER=user
+        - FB_PASS="<YOUR_PASSWORD>"
+````
 ### Get switch energy consumption in Wh and power in W
 
 #### Run with node
