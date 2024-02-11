@@ -21,7 +21,7 @@ FB_URL=http://192.168.178.1/
 # Fritz Box User Account
 FB_USER=user
 # Fritz Box Passwort
-FB_PASS=Snu6t2pZ3JXELXN7
+FB_PASS=<YOUR_PASSWORD>
 ````
 ### Get switch energy consumption in Wh and power in W
 

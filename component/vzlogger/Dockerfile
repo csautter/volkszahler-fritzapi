@@ -2,25 +2,27 @@ FROM debian:buster-20240130-slim
 
 EXPOSE 80
 
-RUN apt-get -y update
-RUN apt-get install -y git
-RUN apt-get install -y cmake
-RUN apt-get install -y autoconf
-RUN apt-get install -y libtool
-RUN apt-get install -y uuid-dev
-RUN apt-get install -y libcurl4-openssl-dev
-RUN apt-get install -y libssl-dev
-RUN apt-get install -y libgnutls28-dev
-RUN apt-get install -y libgcrypt20-dev
-RUN apt-get install -y libmicrohttpd-dev
-RUN apt-get install -y libsasl2-dev
-RUN apt-get install -y libunistring-dev
-RUN apt-get install -y wget
-RUN apt-get install -y sudo
-RUN apt-get install -y pkg-config
-RUN apt-get install -y build-essential
-RUN apt-get install -y vim
-RUN apt-get install -y nodejs
+RUN apt-get -y update \
+    && apt-get install -y git \
+    cmake \
+    autoconf \
+    libtool \
+    uuid-dev \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    libgnutls28-dev \
+    libgcrypt20-dev \
+    libmicrohttpd-dev \
+    libsasl2-dev \
+    libunistring-dev \
+    wget \
+    sudo \
+    pkg-config \
+    build-essential \
+    vim \
+    nodejs \
+    && apt-get clean \
+    && rm -rf /var/cache/apt/archives /var/lib/apt/lists
 
 WORKDIR /app
 COPY install.sh .
