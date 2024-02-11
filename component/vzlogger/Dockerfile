@@ -62,4 +62,4 @@ WORKDIR /app/api
 RUN npm ci && npm cache clean --force
 
 USER vz
-CMD ["/usr/local/bin/vzlogger","-c","/etc/vzlogger.conf"]
+CMD ["/usr/local/bin/vzlogger","-c","/etc/vzlogger.conf", "--foreground"]

@@ -49,7 +49,6 @@ Adjust the config file to your needs.
 ````json
 {
   "retry": 3,
-  "daemon": false,
   "verbosity": 0, // Set to 15 for debugging purposes
   "log": "/dev/stdout",
   "local": {
@@ -87,11 +86,11 @@ Adjust the config file to your needs.
 }
 ````
 ### Start vzlogger
-Start with docker-compose
+Start with docker compose
 ````
 # run in foreground
-# docker-compose up vzlogger
+# docker compose up vzlogger
 
 # run detached in background
-docker-compose up vzlogger -d
+docker compose up vzlogger -d
 ````
