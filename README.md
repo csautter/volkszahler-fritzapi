@@ -9,11 +9,11 @@ The fritzapi component ist located under /api.
 Run ``npm install`` in /api folder.  
 As alternative, you can use the npm docker container.
 ````bash
-docker-compose -f docker-compose.fritzapi.yml run fritzapi sh -c "cd /app && npm install"
+docker-compose -f docker-compose.fritzapi.dev.yml run fritzapi sh -c "cd /app && npm install"
 ````
 ### Configure fritzapi
 Be sure you have enabled the authentication methode by username and password in your Fritz Box.  
-Create a file ./app/.env with your specific environment settings.
+Create a file ./app/.env with your specific environment settings. Or pass environment variables to the docker container.
 ````dotenv
 # Use FBs IP Address or DNS Name
 FB_URL=http://192.168.178.1/
@@ -21,7 +21,15 @@ FB_URL=http://192.168.178.1/
 # Fritz Box User Account
 FB_USER=user
 # Fritz Box Passwort
-FB_PASS=Snu6t2pZ3JXELXN7
+FB_PASS=<YOUR_PASSWORD>
+````
+````dockerfile
+services:
+  vzlogger:
+    environment:
+        - FB_URL=http://192.168.178.1/
+        - FB_USER=user
+        - FB_PASS="<YOUR_PASSWORD>"
 ````
 ### Get switch energy consumption in Wh and power in W
 
@@ -33,7 +41,7 @@ node get-switch-energy.js --ain 000012345678
 ````
 #### Run with docker
 ````bash
-docker-compose -f docker-compose.fritzapi.yml run fritzapi sh -c "cd /app && node get-switch-energy.js --ain 000012345678"
+docker-compose -f docker-compose.fritzapi.dev.yml run fritzapi sh -c "cd /app && node get-switch-energy.js --ain 000012345678"
 # energy 282395
 # power 56.43
 ````
@@ -49,7 +57,6 @@ Adjust the config file to your needs.
 ````json
 {
   "retry": 3,
-  "daemon": false,
   "verbosity": 0, // Set to 15 for debugging purposes
   "log": "/dev/stdout",
   "local": {
@@ -87,11 +94,11 @@ Adjust the config file to your needs.
 }
 ````
 ### Start vzlogger
-Start with docker-compose
+Start with docker compose
 ````
 # run in foreground
-# docker-compose up vzlogger
+# docker compose up vzlogger
 
 # run detached in background
-docker-compose up vzlogger -d
+docker compose up vzlogger -d
 ````
