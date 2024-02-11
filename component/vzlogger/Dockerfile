@@ -3,7 +3,7 @@ FROM debian:bookworm-20240130-slim AS build
 
 # Install dependencies
 RUN apt-get -y update \
-    && apt-get install -y git \
+    && apt-get install --no-install-recommends -y git \
     cmake \
     autoconf \
     libtool \
@@ -17,15 +17,18 @@ RUN apt-get -y update \
     libunistring-dev \
     libjson-c-dev \
     libjson-c5 \
+    libltdl-dev \
     wget \
     sudo \
     pkg-config \
     build-essential \
+    ca-certificates \
+    automake \
     && apt-get clean \
     && rm -rf /var/cache/apt/archives /var/lib/apt/lists
 
 WORKDIR /app
-COPY install.sh .
+COPY component/vzlogger/install.sh .
 RUN bash install.sh
 
 # Test the installation
@@ -34,10 +37,11 @@ RUN vzlogger --version
 FROM debian:bookworm-20240130-slim
 
 RUN apt-get -y update \
-    && apt-get install -y \
+    && apt-get install --no-install-recommends -y \
     libcurl4-openssl-dev \
     libmicrohttpd-dev \
     nodejs \
+    npm \
     && apt-get clean \
     && rm -rf /var/cache/apt/archives /var/lib/apt/lists
 
@@ -51,6 +55,11 @@ RUN useradd -m -s /bin/bash -G dialout vz
 
 # Test the installation
 RUN vzlogger --version
+
+# Copy fritzapi and install npm
+COPY api /app/api
+WORKDIR /app/api
+RUN npm ci && npm cache clean --force
 
 USER vz
 CMD ["/usr/local/bin/vzlogger","-c","/etc/vzlogger.conf"]

@@ -9,11 +9,11 @@ The fritzapi component ist located under /api.
 Run ``npm install`` in /api folder.  
 As alternative, you can use the npm docker container.
 ````bash
-docker-compose -f docker-compose.fritzapi.yml run fritzapi sh -c "cd /app && npm install"
+docker-compose -f docker-compose.fritzapi.dev.yml run fritzapi sh -c "cd /app && npm install"
 ````
 ### Configure fritzapi
 Be sure you have enabled the authentication methode by username and password in your Fritz Box.  
-Create a file ./app/.env with your specific environment settings.
+Create a file ./app/.env with your specific environment settings. Or pass environment variables to the docker container.
 ````dotenv
 # Use FBs IP Address or DNS Name
 FB_URL=http://192.168.178.1/
@@ -33,7 +33,7 @@ node get-switch-energy.js --ain 000012345678
 ````
 #### Run with docker
 ````bash
-docker-compose -f docker-compose.fritzapi.yml run fritzapi sh -c "cd /app && node get-switch-energy.js --ain 000012345678"
+docker-compose -f docker-compose.fritzapi.dev.yml run fritzapi sh -c "cd /app && node get-switch-energy.js --ain 000012345678"
 # energy 282395
 # power 56.43
 ````

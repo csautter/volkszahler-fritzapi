@@ -7,6 +7,7 @@ services:
       context: ./
       dockerfile: ./component/vzlogger/Dockerfile
     volumes:
-      - "./api/.env:/app/api/.env"
+      # mount the full api directory for development
+      - "./api:/app/api"
       - "./component/vzlogger/vzlogger.json:/etc/vzlogger.conf"
     restart: always

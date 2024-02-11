@@ -30,7 +30,7 @@ jobs:
         name: Build and push PR
         uses: docker/build-push-action@v5
         with:
-          context: "{{defaultContext}}:component/vzlogger/"
+          file: ./component/vzlogger/Dockerfile
           platforms: linux/amd64,linux/arm64/v8,linux/arm/v7
           push: true
           tags: ccs1/volkszahler-fritzapi:pr_${{github.event.number}}_${{github.sha}}
