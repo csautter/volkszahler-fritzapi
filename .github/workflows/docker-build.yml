@@ -3,6 +3,9 @@ name: docker-build
 
 on:
   pull_request:
+  push:
+    branches:
+      - master
 
 jobs:
   docker:
@@ -29,6 +32,7 @@ jobs:
       -
         name: Build and push PR
         uses: docker/build-push-action@v5
+        if: github.ref != 'refs/heads/master'
         with:
           file: ./component/vzlogger/Dockerfile
           platforms: linux/amd64,linux/arm64/v8,linux/arm/v7
