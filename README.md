@@ -1,10 +1,17 @@
 # Volkszähler FritzBox API
 This composition of vzlogger and fritzapi helps you to push energy and power measures from Fritz DECT devices to the Volkszähler middleware. Supported devices are **Fritz!DECT 200 and 210**.
+
+## Status
+### Main
+[![docker-build](https://github.com/csautter/volkszahler-fritzapi/actions/workflows/docker-build.yml/badge.svg?branch=main)](https://github.com/csautter/volkszahler-fritzapi/actions/workflows/docker-build.yml)
+### Dev
+[![docker-build](https://github.com/csautter/volkszahler-fritzapi/actions/workflows/docker-build.yml/badge.svg?branch=dev)](https://github.com/csautter/volkszahler-fritzapi/actions/workflows/docker-build.yml)
 ## fritzapi
 fritzapi is used as connector to your Fritz Box.  
 The fritzapi component ist located under /api.
 
 **Source:** https://github.com/andig/fritzapi
+
 ### Install
 Run ``npm install`` in /api folder.  
 As alternative, you can use the npm docker container.
