@@ -1,5 +1,5 @@
 # Reference: https://github.com/volkszaehler/vzlogger/blob/master/Dockerfile
-FROM debian:bookworm-20240130-slim AS build
+FROM debian:bookworm-20240211-slim AS build
 
 # Install dependencies
 RUN apt-get -y update \
@@ -34,7 +34,7 @@ RUN bash install.sh
 # Test the installation
 RUN vzlogger --version
 
-FROM debian:bookworm-20240130-slim
+FROM debian:bookworm-20240211-slim
 
 RUN apt-get -y update \
     && apt-get install --no-install-recommends -y \
