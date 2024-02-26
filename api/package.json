@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "command-line-args": "^5.2.1",
-    "dotenv": "^16.4.4",
+    "dotenv": "^16.4.5",
     "fritzapi": "^0.13.0"
   }
 }
